@@ -1,0 +1,28 @@
+        <!-- Delivery section -->
+        <section class="delivery hidden sm:block my-2">
+            <div class="container mx-auto">
+                <div class="delivery__inner flex justify-between xl:justify-end bg-sky-300 p-5 text-center">
+                    <div class="delivery__left w-1/3 p-3 xl:flex xl:items-center">
+                        <div class="delivery__inner-img h-24 mx-auto text-center mb-1">
+                            <img class="delivery__left-img h-full inline-block" src="../../../assets/images/mn-delivery-img.svg" alt="delivery">
+                        </div>                        
+                        <a [routerLink]="[ '/delivery' ]" class="delivery__zone-link delivery__left-content p-3 bg-stone-100 inline-block rounded-lg h-12 xl:-ml-10 hover:text-sky-700 transition-all duration-300 px-2 rounded-lg">
+                            ЗОНИ ДОСТАВКИ
+                        </a>
+                        <!-- <p class="delivery__left-content p-3 bg-stone-100 inline-block rounded-lg h-12 xl:-ml-10">ЗОНИ ДОСТАВКИ</p> -->
+                    </div>
+                    <div class="delivery__center w-1/3 p-3 xl:flex xl:items-center">
+                        <div class="delivery__img-inner h-24 mx-auto text-center mb-1">
+                            <img class="delivery__left-img h-full inline-block" src="../../../assets/images/mono-supermen.svg" alt="supeman">
+                        </div>                        
+                        <p class="delivery__left-content text-center">Середній час доставки в зеленій зоні <span class="font-bold">00:43:00</span></p>
+                    </div>
+                    <div class="delivery__right w-1/3 p-3 xl:flex xl:items-center">
+                        <div class="delivery__img-inner h-24 mx-auto text-center mb-1">
+                            <img class="delivery__left-img h-full inline-block" src="../../../assets/images/mono-bonus.svg" alt="bonus">
+                        </div>                        
+                        <p class="delivery__left-content text-center">Наш графік роботи Працюємо з <span class="font-bold">11:00</span> до <span class="font-bold">22:30</span></p>
+                    </div>
+                </div>
+            </div>
+        </section>

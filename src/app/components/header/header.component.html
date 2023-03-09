@@ -1,0 +1,134 @@
+<header class="header container px-2">
+    <div class="container mx-auto">
+        <nav class="navbar flex justify-between h-10 xl:h-16">
+            <a class="header__logo bg-sky-300 p-2" href="#" >
+                <img class="logo__img h-full" src="../../../assets/images/logo-mobile.svg" alt="logo">                
+            </a>
+            <!-- phone Navbar -->
+            <div class="short__header xl:hidden flex justify-around w-full">
+                <a class="phone__link flex items-center" href="tel:+380978780837">
+                    <img class="phone__img" src="../../../assets/images/phone.svg" alt="phone">                    
+                </a>
+                <button class="login__btn">
+                    <img src="../../../assets/images/user.svg" alt="user">
+                </button>
+                <div (click)="showBurgerMenu()" class="burger__menu border-y-4 border-gray-600 border-solid h-8 w-10 m-1 relative after:content-[''] after:absolute after:top-2.5 after:h-1 after:w-10 after:bg-gray-600 cursor-pointer">
+                    <div *ngIf="isShowHeaderMenu" class="burger__menu-wide--modal absolute -top-5 left-0 w-52 bg-gray-100 p-2 z-10 border-2 border-solid border-sky-300 rounded-lg cursor-auto">
+                        <div class="burger__menu-close mb-4 p-2 cursor-pointer text-end">X</div>
+                        <ul class="burger__menu-list">
+                            <li class="burger__menu-item mb-5">
+                                <a [routerLink]="[ '/delivery' ]" class="burger__menu-link p-2 border-2 border-solid border-transparent hover:border-sky-300 rounded-lg transition-all duration-300">Доставка та оплата</a>
+                            </li>
+                            <li class="burger__menu-item mb-5">
+                                <a [routerLink]="[ '/about' ]" class="burger__menu-link p-2 border-2 border-solid border-transparent hover:border-sky-300 rounded-lg transition-all duration-300">Про нас</a>
+                            </li>
+                            <li class="burger__menu-item mb-5">
+                                <a [routerLink]="[ '/action' ]" class="burger__menu-link p-2 border-2 border-solid border-transparent hover:border-sky-300 rounded-lg transition-all duration-300">Акції</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>           
+            
+            <!-- Laptop Navbar menu -->
+            <div class="long__header hidden xl:flex justify-around w-full items-center">
+                <ul class="header__menu flex justify-around mt-2 p-2">
+                    <li class="header__menu-item mx-3">
+                        <a class="header__menu-link text-center" href="#">
+                            <img class="header__menu-img mx-auto" src="../../../assets/images/nav-img-gift.svg" alt="">
+                            <p class="header__menu-text">Акції</p>
+                        </a>
+                    </li>
+                    <li class="header__menu-item mx-3">
+                        <a class="header__menu-link text-center" href="#">
+                            <img class="header__menu-img mx-auto" src="../../../assets/images/nav-img-rolls.svg" alt="">
+                            <p class="header__menu-text">Роли</p>
+                        </a>
+                    </li>
+                    <li class="header__menu-item mx-3">
+                        <a class="header__menu-link text-center" href="#">
+                            <img class="header__menu-img mx-auto" src="../../../assets/images/nav-img-sets.svg" alt="">
+                            <p class="header__menu-text">Сети</p>
+                        </a>
+                    </li>
+                    <li class="header__menu-item mx-3">
+                        <a class="header__menu-link text-center" href="#">
+                            <img class="header__menu-img mx-auto" src="../../../assets/images/nav-img-drinks.svg" alt="">
+                            <p class="header__menu-text">Напої</p>
+                        </a>
+                    </li>
+                    <li class="header__menu-item mx-3">
+                        <a class="header__menu-link text-center" href="#">
+                            <img class="header__menu-img mx-auto" src="../../../assets/images/souse-icon.svg" alt="">
+                            <p class="header__menu-text">Соуси</p>
+                        </a>
+                    </li>
+                </ul>
+
+                <div (click)="showBurgerMenu()" class="burger__menu-wide border-y-4 border-gray-600 border-solid h-8 w-10 m-1 relative after:content-[''] after:absolute after:top-2.5 after:h-1 after:w-10 after:bg-gray-600 cursor-pointer">
+                    <div *ngIf="isShowHeaderMenu" class="burger__menu-wide--modal absolute -top-5 left-0 w-52 bg-gray-100 p-2 z-10 border-2 border-solid border-sky-300 rounded-lg cursor-auto">
+                        <div class="burger__menu-close mb-4 p-2 cursor-pointer text-end">X</div>
+                        <ul class="burger__menu-list">
+                            <li class="burger__menu-item mb-5">
+                                <a [routerLink]="[ '/delivery' ]" class="burger__menu-link p-2 border-2 border-solid border-transparent hover:border-sky-300 rounded-lg transition-all duration-300">Доставка та оплата</a>
+                            </li>
+                            <li class="burger__menu-item mb-5">
+                                <a [routerLink]="[ '/about' ]" class="burger__menu-link p-2 border-2 border-solid border-transparent hover:border-sky-300 rounded-lg transition-all duration-300">Про нас</a>
+                            </li>
+                            <li class="burger__menu-item mb-5">
+                                <a [routerLink]="[ '/action' ]" class="burger__menu-link p-2 border-2 border-solid border-transparent hover:border-sky-300 rounded-lg transition-all duration-300">Акції</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="header__phone-inner flex items-center bg-sky-300 hover: hover:bg-transparent transition-all duration-300 rounded-lg p-2 cursor-pointer">
+                    <img class="phone__img h-6 mr-2" src="../../../assets/images/phone.svg" alt="phone">
+                    <p class="header__phone-text">Ми зателефонуємо</p>
+                    <div class="header__phone-modal--back hidden absolute inset-0 bg-gray-100/80 cursor-auto">
+                        <div class="header__phone-modal absolute inset-0 h-screen flex justify-center items-center">
+                            <div class="header__phone-modal--inner flex-col bg-white rounded-lg p-4 text-lg">
+                                <div class="header__phone-modal--close text-end mb-4 cursor-pointer">X</div>
+                                <h2 class="text-center font-bold text-xl mb-2 w-2/3 mx-auto">Ми зателефонуємо</h2>
+                                <p class="text-center w-2/3 mx-auto">Залиште номер телефону і наші менеджери зв’яжуться з вами</p>
+                                <form class="header__phone-modal flex flex-col p-2">
+                                    <input class="callback__name mb-2 p-2" type="text" placeholder="Ваше ім'я">
+                                    <input class="callback__phone mb-2 p-2" type="text" placeholder="Ваш номер телефону">
+                                    <button class="send__btn bg-sky-300 hover:bg-transparent rounded-lg p-2 font-bold">Надіслати</button>
+                                </form>
+                            </div>                                
+                        </div>                            
+                    </div>
+                </div>                    
+                <div class="header__contact-inner text-center">
+                    <a href="tel:+380978780837" class="header__contact-phone--link font-bold hover:text-sky-700">(097) 878 08 37</a>                        
+                    <p class="header__contact-text">Працюємо з <span class="font-bold">11:00</span> до <span class="font-bold">22:30</span></p>
+                </div>
+            </div>
+            <button class="login__btn mx-6">
+                <img src="../../../assets/images/user.svg" alt="user">
+                <div class="header__user-modal--back hidden absolute inset-0 bg-gray-100/80 cursor-auto">
+                    <div class="header__user-modal absolute inset-0 h-screen flex justify-center items-center">
+                        <div class="header__user-modal--inner flex-col bg-white rounded-lg p-4 text-lg w-96">
+                            <div class="header__user-modal--close text-end mb-4 cursor-pointer">X</div>
+                            <h2 class="text-center font-bold text-xl mb-2 w-2/3 mx-auto">Вхід в кабінет</h2>                                                                
+                            <form class="header__user-modal flex flex-col p-2 mb-2">
+                                <input class="user__email mb-2 p-2" type="text" placeholder="Ваш email">
+                                <input class="password__email mb-2 p-2" type="text" placeholder="Пароль">                                    
+                                <input class="login__btn bg-sky-300 hover:bg-transparent rounded-lg p-2 font-bold cursor-pointer"  type="submit" value="УВІЙТИ В КАБІНЕТ">                                    
+                            </form>                                                                
+                            <div class="footer__modal flex justify-between text-xs mb-2">
+                                <a href="#" class="reset__password hover:text-sky-700">Забули пароль?</a>
+                                <a href="#" class="check__up hover:text-sky-700">Зареєструватися</a>
+                            </div>
+                        </div>                                
+                    </div>                            
+                </div>
+            </button>
+            <div class="basket__inner flex p-2 cursor-pointer bg-sky-300 items-center p-2 min-w-fit">
+                <img class="basket__img h-2/3 mr-2" src="../../../assets/images/basket.svg" alt="basket">
+                <p class="basket__amount">100 000<span>&nbsp;грн</span></p>
+            </div>
+        </nav>
+    </div>        
+</header>
