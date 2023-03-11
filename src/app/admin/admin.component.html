@@ -1,0 +1,38 @@
+<section class="admin container">
+    
+ <aside id="default-sidebar" class="fixed top-20 left-0 z-40 w-48 h-screen transition-transform -translate-x-full sm:translate-x-0 border-t-4 border-solid border-sky-300" aria-label="Sidebar">
+    <div class="min-h-fit px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800 text-center">
+       <ul class="space-y-2">
+          <li>
+             <a [routerLink]="[ 'discount'] " routerLinkActive="active"  class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">                
+                <span class="ml-3">Акції</span>
+             </a>
+          </li>
+          <li>
+            <a [routerLink]="[ 'category'] " routerLinkActive="active" class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">                
+               <span class="ml-3">Категорії</span>
+            </a>
+          </li>
+          <li>
+            <a [routerLink]="[ 'product'] " routerLinkActive="active" class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">                
+               <span class="ml-3">Товари</span>
+            </a>
+         </li>
+         <li>
+            <a [routerLink]="[ 'order'] " routerLinkActive="active" class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">                
+               <span class="ml-3">Замовлення</span>
+            </a>
+         </li>                              
+       </ul>
+       <button (click)="adminLogOut()" class="admin__logout mt-2 inline-block mx-auto bg-sky-300 hover:bg-transparent rounded-lg p-2 font-bold cursor-pointer" type="button">Вихід</button>
+    </div>
+ </aside>
+ 
+ <div class="p-4 sm:ml-64 h-72 min-h-fit px-3 py-4 overflow-y-auto ">
+    <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg ">
+       Hello
+       <router-outlet></router-outlet>
+    </div>
+ </div>
+ 
+</section>
