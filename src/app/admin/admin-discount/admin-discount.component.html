@@ -1,1 +1,48 @@
-<p>admin-discount works!</p>
+<div class="admin__action-inner container p-4">
+    <button (click)="showAddDiscount()" class="px-4 py-2 mb-4 border border-solid border-sky-300 font-bold text-xl rounded-xl hover:text-sky-700">Додати акцію</button>
+    <table class="w-full">
+        <tr class="text-base border-b-2 border-sky-300 border-solid">
+            <th class="py-2">Дата</th>
+            <th class="py-2">Назва</th>
+            <th class="py-2">Заголовок</th>
+            <th class="py-2">Опис</th>
+            <th class="py-2">Картинка</th>
+            <th class="py-2">Дії</th>                    
+        </tr>
+        <tr *ngFor="let discount of adminDiscounts" class="text-base border-b-2 border-gray-300 border-solid">
+            <td class="align-top p-2">{{discount.date | date:'shortDate'}}</td>
+            <td class="align-top p-2">{{discount.title}}</td>
+            <td class="align-top p-2">{{discount.title}}</td>
+            <td class="align-top p-2">{{discount.description | slice:0:20}} 
+                <span *ngIf="discount.description.length > 20">...</span>
+            </td>
+            <td class="align-middle">
+                <div class="px-2 py-1 action__img-inner max-w-xs">
+                    <img class="max-h-20" [src]="discount.imagePath" alt="action">
+                </div>                        
+            </td>
+            <td class="p-2 align-middle">
+                <div class="action__buttons-inner flex flex-col justify-center">
+                    <button class="edit__btn p-2 inline-block text-lg text-sky-300 hover:text-sky-700">Редагувати</button>
+                    <button class="delete__btn p-2 inline-block text-lg text-sky-300 hover:text-sky-700">Видалити</button>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div *ngIf="isShowAddDiscount" class="create__action-modal--back  absolute inset-0 bg-gray-100/80 cursor-auto">
+    <div class="create__action-modal absolute inset-0 h-screen flex justify-center items-center">
+        <div class="create__action-modal--inner flex-col bg-white rounded-lg p-4 text-lg">
+            <div (click)="hideAddDiscount()" class="create__action-modal--close text-end mb-4 cursor-pointer">X</div>
+            <h2 class="text-center font-bold text-xl mb-2 w-2/3 mx-auto">Нова акція</h2>
+            <form class="create__action-modal flex flex-col p-2">
+                <input [(ngModel)]="addTitle" name="addTitle" class="action__name border border-2 border-solid border-gray-300  mb-2 p-2" type="text" placeholder="Назва">
+                <input class="action__title border border-2 border-solid border-gray-300  mb-2 p-2" type="text" placeholder="Заголовок">
+                <textarea [(ngModel)]="addDescription" name="addDescription" class="action__description border border-2 border-solid border-gray-300 mb-2 p-2" name="description" cols="50" rows="5"></textarea>
+                <input [(ngModel)]="addImagePath" name="addImagePath" class="action__title mb-2 p-2 text-sm border border-sky-300 rounded-lg cursor-pointer bg-sky-50 focus:outline-none" type="file">
+                <button (click)="addNewDiscount()" class="send__btn bg-sky-300 hover:bg-transparent rounded-lg p-2 font-bold">Додати</button>                
+            </form>
+        </div>                                
+    </div>                            
+</div>

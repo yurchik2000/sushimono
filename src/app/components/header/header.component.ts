@@ -31,7 +31,6 @@ export class HeaderComponent {
   signIn(email: string, password:string): void {
     if (email === 'admin@gmail.com' && password === 'admin') {
       this.router.navigateByUrl('/admin');
-      this.isShowUserLogIn = false;
     }
   }
 
